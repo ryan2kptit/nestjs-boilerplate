@@ -1,0 +1,47 @@
+{
+  "name": "@dn/nestjs-crud-base-lib",
+  "version": "0.1.8",
+  "description": "CRUD Base with multiple tenants support",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "build:dev": "tsc --watch",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryan2kptit/nestjs-crud-base-lib"
+  },
+  "keywords": [
+    "Nestjs",
+    "CURD",
+    "Multiple Tenant"
+  ],
+  "publishConfig": {
+    "@dn:registry": "https://npm.pkg.github.com"
+  },
+  "author": "https://github.com/ryan2kptit",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/common": "^9.2.0",
+    "@nestjs/core": "^9.2.0",
+    "@nestjs/swagger": "^6.1.3",
+    "@nestjs/typeorm": "^9.0.1",
+    "@types/node": "^18.11.9",
+    "class-validator": "^0.13.2",
+    "express": "^4.18.2",
+    "generate-template-files": "^3.2.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.7",
+    "typeorm": "^0.3.10"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^9.3.9",
+    "typescript": "^4.9.3"
+  }
+}
