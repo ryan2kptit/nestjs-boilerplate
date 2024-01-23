@@ -1,6 +1,6 @@
 {
-  "name": "@dn/nestjs-crud-base-lib",
-  "version": "0.1.8",
+  "name": "@ryan2kptit/nestjs-crud-base-lib",
+  "version": "0.1.1",
   "description": "CRUD Base with multiple tenants support",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -23,7 +23,7 @@
     "Multiple Tenant"
   ],
   "publishConfig": {
-    "@dn:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/@ryan2kptit"
   },
   "author": "https://github.com/ryan2kptit",
   "license": "ISC",
