@@ -10,6 +10,6 @@
     "outDir": "./lib",
     "baseUrl": "./",
     "incremental": true
-  },
-  "include": ["src"]
+  }
+  // "include": ["src", "lib/controller", "lib/dto", "lib/entity", "lib/filter-provider", "lib/repository", "lib/service", "lib/type", "lib/index.ts", "lib/tenancy.constants.ts", "lib/tenancy.interface.ts", "lib/util.service.ts"]
 }

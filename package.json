@@ -1,12 +1,7 @@
 {
-  "name": "@ryan2kptit/nestjs-crud-base-lib",
+  "name": "nestjs-boilerplate",
   "version": "0.1.1",
   "description": "CRUD Base with multiple tenants support",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
@@ -15,16 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ryan2kptit/nestjs-crud-base-lib"
+    "url": "https://github.com/ryan2kptit/nestjs-boilerplate"
   },
   "keywords": [
     "Nestjs",
     "CURD",
     "Multiple Tenant"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@ryan2kptit"
-  },
   "author": "https://github.com/ryan2kptit",
   "license": "ISC",
   "dependencies": {
