@@ -22,7 +22,6 @@ export default function (app: INestApplication) {
     defaultVersion: ['1'],
     prefix: 'api/v',
   });
-  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
   app.useGlobalInterceptors(new TransformInterceptor());
   app.useGlobalPipes(
     new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),

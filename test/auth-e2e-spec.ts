@@ -6,7 +6,7 @@ import { AuthModule } from '../src/api/auth/auth.module';
 import { AuthService } from '../src/api/auth/auth.service';
 import { JWT_CONFIG } from '../src/configs/constant.config';
 import { MOCK_USER_WITH_ROLE } from '../src/api/user/user.constant';
-import { UserEntity } from '../src/api/user/user.entity';
+import { User } from '../src/api/user/user.model';
 import { UserModule } from '../src/api/user/user.module';
 import { UserService } from '../src/api/user/user.service';
 import { RoleEntity } from '../src/api/role/role.entity';
@@ -41,9 +41,9 @@ describe('Auth', () => {
 
   beforeAll(async () => {
     const moduleAuthSuccess = await Test.createTestingModule({
-      imports: [TypeOrmModule.forFeature([UserEntity]), AuthModule, UserModule],
+      imports: [TypeOrmModule.forFeature([User]), AuthModule, UserModule],
     })
-      .overrideProvider(getRepositoryToken(UserEntity))
+      .overrideProvider(getRepositoryToken(User))
       .useValue(mockedRepo)
       .overrideProvider(getRepositoryToken(RoleEntity))
       .useValue({})
@@ -54,9 +54,9 @@ describe('Auth', () => {
       .compile();
 
     const moduleAuthFail = await Test.createTestingModule({
-      imports: [TypeOrmModule.forFeature([UserEntity]), AuthModule, UserModule],
+      imports: [TypeOrmModule.forFeature([User]), AuthModule, UserModule],
     })
-      .overrideProvider(getRepositoryToken(UserEntity))
+      .overrideProvider(getRepositoryToken(User))
       .useValue(mockedRepo)
       .overrideProvider(getRepositoryToken(RoleEntity))
       .useValue({})

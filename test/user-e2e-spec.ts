@@ -4,7 +4,7 @@ import { getRepositoryToken, TypeOrmModule } from '@nestjs/typeorm';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { JwtAuthGuard } from '../src/api/auth/guards/jwt.guard';
 import { MOCK_USER, MOCK_USER_WITH_ROLE } from '../src/api/user/user.constant';
-import { UserEntity } from '../src/api/user/user.entity';
+import { User } from '../src/api/user/user.model';
 import { UserModule } from '../src/api/user/user.module';
 import { RoleEntity } from '../src/api/role/role.entity';
 import { stubUserGuard } from './stubs';
@@ -34,22 +34,22 @@ describe('User', () => {
 
   beforeAll(async () => {
     const moduleUserSuccess = await Test.createTestingModule({
-      imports: [TypeOrmModule.forFeature([UserEntity]), UserModule],
+      imports: [TypeOrmModule.forFeature([User]), UserModule],
     })
       .overrideGuard(JwtAuthGuard)
       .useValue(stubUserGuard)
-      .overrideProvider(getRepositoryToken(UserEntity))
+      .overrideProvider(getRepositoryToken(User))
       .useValue(mockedRepo)
       .overrideProvider(getRepositoryToken(RoleEntity))
       .useValue({})
       .compile();
 
     const moduleUserFail = await Test.createTestingModule({
-      imports: [TypeOrmModule.forFeature([UserEntity]), UserModule],
+      imports: [TypeOrmModule.forFeature([User]), UserModule],
     })
       .overrideGuard(JwtAuthGuard)
       .useValue(stubUserGuard)
-      .overrideProvider(getRepositoryToken(UserEntity))
+      .overrideProvider(getRepositoryToken(User))
       .useValue(mockedRepo)
       .overrideProvider(getRepositoryToken(RoleEntity))
       .useValue({})
