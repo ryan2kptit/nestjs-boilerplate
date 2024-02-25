@@ -24,6 +24,12 @@ export interface IPaginateParams {
   sortOrder?: string;
   search?: string;
   status?: string;
-  companyId?: string;
-  roleIds?: string;
+}
+
+export interface IResponseList<T> {
+  data: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPage: number;
 }

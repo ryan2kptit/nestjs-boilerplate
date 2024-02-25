@@ -11,24 +11,24 @@ import {
 export class QueryParamDto {
   @ApiPropertyOptional()
   @IsOptional()
-  page: number;
+  page: number = 1;
 
   @ApiPropertyOptional()
   @IsOptional()
-  pageSize: number;
+  pageSize: number = 10;
 
   @ApiPropertyOptional()
   @IsString()
   @IsOptional()
   @Transform(({ value }) => value.trim())
-  sortBy: string;
+  sortBy: string = 'createdAt'
 
   @ApiPropertyOptional()
   @IsString()
   @IsOptional()
   @IsEnum(['desc', 'asc'])
   @Transform(({ value }) => value.trim())
-  sortOrder: string;
+  sortOrder: string = 'asc'
 
   @ApiPropertyOptional()
   @IsString()

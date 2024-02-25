@@ -1,0 +1,10 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      run: npm run lint
+commit-msg:
+  parallel: true
+  commands:
+    commitlint:
+      run: npx commitlint --edit

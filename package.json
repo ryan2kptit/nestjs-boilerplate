@@ -18,12 +18,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "ts-node ./node_modules/typeorm/cli",
-    "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./src/configs/typeorm.config.ts",
-    "typeorm:generate-migration": "npm run typeorm -- -d ./src/configs/typeorm.config.ts migration:generate ./migrations/$npm_config_name -p && eslint \"migrations/*.ts\" --fix",
-    "typeorm:create-migration": "npm run typeorm -- migration:create ./migrations/$npm_config_name && eslint \"migrations/*.ts\" --fix",
-    "typeorm:revert-migration": "npm run typeorm -- -d ./src/configs/typeorm.config.ts migration:revert"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "repository": {
     "type": "git",
@@ -60,8 +55,17 @@
     "winston": "^3.11.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
     "@nestjs/testing": "^9.3.9",
     "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "lefthook": "^1.6.1",
+    "prettier": "^3.2.5",
     "typescript": "^4.9.3"
   }
 }

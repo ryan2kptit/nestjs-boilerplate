@@ -1,5 +1,5 @@
 import { CanActivate, ExecutionContext } from '@nestjs/common';
-import { MOCK_USER_WITH_ROLE } from '../../src/api/user/user.constant';
+import { MOCK_USER_WITH_ROLE } from '../../src/modules/user/user.constant';
 
 const stubCustomLogger = {
   error: () => ({}),

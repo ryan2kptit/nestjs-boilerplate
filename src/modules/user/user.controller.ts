@@ -9,9 +9,11 @@ import {
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { API_CONFIG } from '../../configs/constant.config';
 import { UserService } from './user.service';
-import { User, UserDocument } from './user.model';
-import { GetListUserDto } from './dto/get-list-user.dto';
+import { UserDocument } from './user.model';
 import { CreateUserDto } from './dto/create-user.dto';
+import { IResponseList } from '@/share/common/app.interface';
+import { query } from 'winston';
+import { QueryParamDto } from './dto/query-param.dto';
 
 @Controller({
   version: [API_CONFIG.VERSION_V1],
@@ -24,14 +26,17 @@ export class UserController {
 
 
   @Post()
-  async createUser(@Body() body: CreateUserDto): Promise<User> {
+  async createUser(@Body() body: CreateUserDto): Promise<UserDocument> {
     return this.userService.createUser(body);
   }
 
   @Get(':id')
-  public async getUser(@Param('id') id: string): Promise<UserDocument> {
-    const res = await this.userService.getUser(id);
-    return res
+  async getUser(@Param('id') id: string): Promise<UserDocument> {
+    return this.userService.getUser(id);
   }
 
+  @Get()
+  async getListUser(@Query() query: QueryParamDto): Promise<IResponseList<UserDocument>> {
+    return this.userService.getListUser(query);
+  }
 }
