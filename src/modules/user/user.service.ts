@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
 import { IPaginateParams, IResponseList } from '@/share/common/app.interface';
+import { ERROR } from '@/share/common/error-code.const';
 
 @Injectable()
 export class UserService {
@@ -19,8 +20,8 @@ export class UserService {
 
   async getUser(id: string): Promise<UserDocument> {
     const user = await this.userModel.findOne({ _id: id });
-    if(!user) { 
-      throw new NotFoundException('User not found');
+    if (!user) {
+      throw new NotFoundException(ERROR.USER_NOT_FOUND.MESSAGE, ERROR.USER_NOT_FOUND.CODE);
     }
     return user;
   }
